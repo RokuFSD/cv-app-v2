@@ -6,10 +6,6 @@ import Header from "./index";
 describe("Header mount", () => {
   it("renders without crashing", () => {
     render(<Header />);
-    expect(screen.getByTestId("header")).toBeInTheDocument();
-  });
-  it("renders the correct text", () => {
-    render(<Header />);
-    expect(screen.getByTestId("header")).toHaveTextContent("CV-App");
+    expect(screen.getByText("CV-App")).toBeInTheDocument();
   });
 });
