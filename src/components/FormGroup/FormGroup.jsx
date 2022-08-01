@@ -9,4 +9,21 @@ function FormGroup({ ariaLabel, title, children }) {
   );
 }
 
-export default FormGroup;
+function withAdding(Component) {
+  const buttonAdd = <button type="button">Add</button>;
+  const buttonRemove = <button type="button">Remove</button>;
+  return function ComponentWithAdding(props) {
+    const { children } = props;
+    return (
+      <Component>
+        {children}
+        {buttonAdd}
+        {buttonRemove}
+      </Component>
+    );
+  };
+}
+
+const FormGroupWithAdding = withAdding(FormGroup);
+
+export { FormGroup, FormGroupWithAdding };

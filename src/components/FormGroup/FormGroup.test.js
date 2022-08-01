@@ -1,6 +1,6 @@
 import React from "react";
 import { screen, render } from "@testing-library/react";
-import FormGroup from "./FormGroup";
+import { FormGroup, FormGroupWithAdding } from "./FormGroup";
 import "@testing-library/jest-dom";
 
 describe("Displays a valid form group=", () => {
@@ -23,5 +23,22 @@ describe("Displays a valid form group=", () => {
       </FormGroup>
     );
     expect(await screen.getByLabelText("First Name")).toBeInTheDocument();
+  });
+});
+
+describe("Displays a valid form group with adding", () => {
+  it("should display a form group with two buttons", () => {
+    render(
+      <FormGroupWithAdding title="Educative Info" ariaLabel="Education info">
+        <label htmlFor="school">
+          School Name
+          <input type="text" id="school" />
+        </label>
+      </FormGroupWithAdding>
+    );
+    const button = screen.getAllByRole("button");
+    expect(screen.getByLabelText("School Name")).toBeInTheDocument();
+    expect(button[0]).toBeInTheDocument();
+    expect(button[1]).toBeInTheDocument();
   });
 });
