@@ -9,9 +9,6 @@ beforeEach(() => {
 
 describe("Footer mount", () => {
   it("renders without crashing", () => {
-    expect(screen.getByTestId("footer")).toBeInTheDocument();
-  });
-  it("renders the correct text", () => {
-    expect(screen.getByTestId("footer")).toHaveTextContent("RokuFSD");
+    expect(screen.getByText("RokuFSD")).toBeInTheDocument();
   });
 });
