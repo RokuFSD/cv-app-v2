@@ -3,7 +3,7 @@ import FormContainer from "../../components/FormContainer/FormContainer";
 
 function Main() {
   return (
-    <main>
+    <main className="bg-gray-800 pt-24 pb-16 px-2 h-screen">
       <FormContainer />
     </main>
   );
