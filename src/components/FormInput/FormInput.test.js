@@ -11,7 +11,9 @@ beforeEach(() => {
     type: "text",
     required: true,
   };
-  render(<FormInput label={data.label} type={data.type} id={data.id} />);
+  render(
+    <FormInput label={data.label} type={data.type} id={data.id} required />
+  );
 });
 
 describe("FormInput mount", () => {
@@ -25,5 +27,9 @@ describe("User enter text", () => {
     const input = screen.getByLabelText("First Name");
     await userEvent.type(input, "John");
     expect(input).toHaveValue("John");
+  });
+  it("should be required", () => {
+    const input = screen.getByLabelText("First Name");
+    expect(input).toHaveAttribute("required");
   });
 });

@@ -2,20 +2,29 @@ import React from "react";
 
 function FormGroup({ ariaLabel, title, children }) {
   return (
-    <div role="group" aria-label={ariaLabel}>
-      <h2>{title}</h2>
+    <div role="group" aria-label={ariaLabel} className="flex flex-col gap-2">
+      <h2 className="font-bold text-lg">{title}</h2>
       {children}
     </div>
   );
 }
 
 function withAdding(Component) {
-  const buttonAdd = <button type="button">Add</button>;
-  const buttonRemove = <button type="button">Remove</button>;
   return function ComponentWithAdding(props) {
-    const { children } = props;
+    const { children, onClickAdd, onClickRemove } = props;
+    const buttonAdd = (
+      <button type="button" onClick={onClickAdd}>
+        Add
+      </button>
+    );
+    const buttonRemove = (
+      <button type="button" onClick={onClickRemove}>
+        Remove
+      </button>
+    );
     return (
-      <Component>
+      // eslint-disable-next-line react/jsx-props-no-spreading
+      <Component {...props}>
         {children}
         {buttonAdd}
         {buttonRemove}

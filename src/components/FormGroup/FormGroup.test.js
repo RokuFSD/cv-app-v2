@@ -19,15 +19,12 @@ describe("Displays a valid form group", () => {
 describe("Displays a valid form group with adding", () => {
   it("should display a form group with two buttons", () => {
     render(
-      <FormGroupWithAdding
-        title="Personal Information"
-        ariaLabel="Personal Information"
-      >
+      <FormGroupWithAdding title="Education" ariaLabel="Education">
         <FormInput label="First Name" type="text" id="firstName" />
       </FormGroupWithAdding>
     );
     const button = screen.getAllByRole("button");
-    expect(button[0]).toBeInTheDocument();
-    expect(button[1]).toBeInTheDocument();
+    expect(screen.getAllByText("Education")[0]).toBeInTheDocument();
+    expect(button).toHaveLength(2);
   });
 });
