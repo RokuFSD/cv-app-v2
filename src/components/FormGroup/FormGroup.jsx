@@ -11,14 +11,19 @@ function FormGroup({ ariaLabel, title, children }) {
 
 function withAdding(Component) {
   return function ComponentWithAdding(props) {
-    const { children, onClickAdd, onClickRemove } = props;
+    const { children, onClickAdd, onClickRemove, lastOne } = props;
     const buttonAdd = (
-      <button type="button" onClick={onClickAdd}>
+      <button className="btn" type="button" onClick={onClickAdd}>
         Add
       </button>
     );
     const buttonRemove = (
-      <button type="button" onClick={onClickRemove}>
+      <button
+        className="btn"
+        type="button"
+        onClick={onClickRemove}
+        disabled={lastOne}
+      >
         Remove
       </button>
     );
@@ -26,8 +31,10 @@ function withAdding(Component) {
       // eslint-disable-next-line react/jsx-props-no-spreading
       <Component {...props}>
         {children}
-        {buttonAdd}
-        {buttonRemove}
+        <div className="flex w-full justify-center gap-8">
+          {buttonAdd}
+          {buttonRemove}
+        </div>
       </Component>
     );
   };

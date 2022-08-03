@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components{
+ .btn{
+  @apply w-40 h-12 border-2 border-neutral-300 rounded-2xl
+ }
+
+  .btn:disabled{
+    @apply border-neutral-500 text-neutral-400;
+  }
+}
+
