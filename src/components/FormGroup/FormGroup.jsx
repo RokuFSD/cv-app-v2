@@ -1,14 +1,5 @@
 import React from "react";
 
-function FormGroup({ ariaLabel, title, children }) {
-  return (
-    <div role="group" aria-label={ariaLabel} className="flex flex-col gap-2">
-      <h2 className="font-bold text-lg">{title}</h2>
-      {children}
-    </div>
-  );
-}
-
 function withAdding(Component) {
   return function ComponentWithAdding(props) {
     const { children, onClickAdd, onClickRemove, lastOne } = props;
@@ -38,6 +29,15 @@ function withAdding(Component) {
       </Component>
     );
   };
+}
+
+function FormGroup({ ariaLabel, title, children }) {
+  return (
+    <div role="group" aria-label={ariaLabel} className="flex flex-col gap-2">
+      <h2 className="font-bold text-lg">{title}</h2>
+      {children}
+    </div>
+  );
 }
 
 const FormGroupWithAdding = withAdding(FormGroup);
