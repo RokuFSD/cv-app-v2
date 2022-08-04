@@ -4,7 +4,6 @@ import FormInput from "../FormInput/FormInput";
 import useFormGroup from "../../hooks/useFormGroup";
 
 function FormContainer() {
-  /* TODO make the hook return the component to use children prop */
   const { formContent: educationContent } = useFormGroup("Education");
   const { formContent: jobContent } = useFormGroup("Job");
   return (
