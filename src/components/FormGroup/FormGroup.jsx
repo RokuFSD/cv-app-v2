@@ -1,30 +1,16 @@
 import React from "react";
+import Button from "../Button/Button";
 
 function withAdding(Component) {
   return function ComponentWithAdding(props) {
     const { children, onClickAdd, onClickRemove, lastOne } = props;
-    const buttonAdd = (
-      <button className="btn" type="button" onClick={onClickAdd}>
-        Add
-      </button>
-    );
-    const buttonRemove = (
-      <button
-        className="btn"
-        type="button"
-        onClick={onClickRemove}
-        disabled={lastOne}
-      >
-        Remove
-      </button>
-    );
     return (
       // eslint-disable-next-line react/jsx-props-no-spreading
       <Component {...props}>
         {children}
         <div className="flex w-full justify-center gap-8">
-          {buttonAdd}
-          {buttonRemove}
+          <Button label="Add" onClick={onClickAdd} />
+          <Button label="Remove" onClick={onClickRemove} disabled={lastOne} />
         </div>
       </Component>
     );
