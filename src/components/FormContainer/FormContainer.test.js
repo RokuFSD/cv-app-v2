@@ -16,7 +16,7 @@ describe("FormContainer mount", () => {
   });
 });
 
-describe("FormContainer mount groups based on initial state", () => {
+describe("FormGroupWithAdding mount groups based on initial state", () => {
   it("renders two group with adding", () => {
     expect(screen.getAllByText("Education")).toHaveLength(1);
   });
