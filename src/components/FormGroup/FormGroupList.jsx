@@ -7,7 +7,7 @@ import { useFormDispatchContext } from "../../context/FormContext";
 function FormGroupList({ items }) {
   const dispatch = useFormDispatchContext();
   return items?.map((item, index) => (
-    <section key={item.id}>
+    <section key={item.id} className="flex flex-col gap-2">
       <FormGroup ariaLabel={item.type} title={item.type}>
         {getInputs(item.type)}
       </FormGroup>

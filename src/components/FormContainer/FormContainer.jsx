@@ -7,7 +7,10 @@ import { useFormContext } from "../../context/FormContext";
 function FormContainer() {
   const data = useFormContext();
   return (
-    <form aria-label="Add information" className="text-neutral-200">
+    <form
+      aria-label="Add information"
+      className="text-neutral-200 flex flex-col gap-10"
+    >
       <FormGroup ariaLabel="Personal Information" title="Personal Information">
         <FormInput id="firstName" label="First Name" type="text" required />
         <FormInput id="lastname" label="Last Name" type="text" required />
