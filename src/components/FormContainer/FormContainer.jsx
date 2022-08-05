@@ -1,18 +1,25 @@
 import React from "react";
-import { FormGroup } from "../FormGroup/FormGroup";
+import FormGroup from "../FormGroup/FormGroup";
 import FormInput from "../FormInput/FormInput";
-import useFormGroup from "../../hooks/useFormGroup";
+import FormGroupList from "../FormGroup/FormGroupList";
+import { useFormContext } from "../../context/FormContext";
 
 function FormContainer() {
-  const { formContent: educationContent } = useFormGroup("Education");
-  const { formContent: jobContent } = useFormGroup("Job");
+  const data = useFormContext();
   return (
     <form aria-label="Add information" className="text-neutral-200">
       <FormGroup ariaLabel="Personal Information" title="Personal Information">
         <FormInput id="firstName" label="First Name" type="text" required />
+        <FormInput id="lastname" label="Last Name" type="text" required />
+        <FormInput id="title" label="Title" type="text" required />
+        <FormInput id="address" label="Address" type="text" required />
+        <FormInput id="phoneNumber" label="Phone Number" type="text" required />
+        <FormInput id="email" label="Email" type="email" required />
+        <FormInput id="description" label="Description" type="textarea" />
+        <FormInput id="photo" label="Photo" type="file" required />
       </FormGroup>
-      {educationContent}
-      {jobContent}
+      <FormGroupList items={data?.education} />
+      <FormGroupList items={data?.experience} />
     </form>
   );
 }

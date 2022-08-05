@@ -3,9 +3,17 @@ import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import FormContainer from "./FormContainer";
+import { FormProvider } from "../../context/FormContext";
+
+function AllProviders({ children }) {
+  return <FormProvider value="">{children}</FormProvider>;
+}
+
+const customRender = (ui, options) =>
+  render(ui, { wrapper: AllProviders, ...options });
 
 beforeEach(() => {
-  render(<FormContainer />);
+  customRender(<FormContainer />);
 });
 
 describe("FormContainer mount", () => {
@@ -18,22 +26,23 @@ describe("FormContainer mount", () => {
 
 describe("FormGroupWithAdding mount groups based on initial state", () => {
   it("renders two group with adding", () => {
-    expect(screen.getAllByText("Education")).toHaveLength(1);
+    expect(screen.getAllByText(/education/i)).toHaveLength(1);
   });
 });
 
-describe("FormContainer change state", () => {
+describe("FormContainer use context", () => {
   it("should add a group", async () => {
     const button = screen.getAllByRole("button");
     await userEvent.click(button[0]);
-    expect(screen.getAllByText("Education")).toHaveLength(2);
+    expect(screen.getAllByText(/education/i)).toHaveLength(2);
   });
 
   it("should remove a group", async () => {
-    const button = screen.getAllByRole("button");
-    await userEvent.click(button[0]);
-    await userEvent.click(button[0]);
-    await userEvent.click(button[1]);
-    expect(screen.getAllByText("Education")).toHaveLength(2);
+    let buttons = screen.getAllByRole("button");
+    await userEvent.click(buttons[0]);
+    buttons = screen.getAllByRole("button");
+    await userEvent.click(buttons[1]);
+    await userEvent.click(buttons[0]);
+    expect(screen.getAllByText(/education/i)).toHaveLength(2);
   });
 });

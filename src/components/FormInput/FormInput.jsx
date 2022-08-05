@@ -5,12 +5,16 @@ function FormInput({ id, label, type, required }) {
     <div>
       <label htmlFor={id} className="flex flex-wrap gap-2 items-center">
         {label}
-        <input
-          type={type}
-          id={id}
-          className="bg-transparent rounded basis-full sm:basis-0"
-          required={required ? "required" : null}
-        />
+        {type === "textarea" ? (
+          <textarea id={id} className="w-full" required={required} />
+        ) : (
+          <input
+            type={type}
+            id={id}
+            className="bg-transparent rounded basis-full sm:basis-0"
+            required={required}
+          />
+        )}
       </label>
     </div>
   );
