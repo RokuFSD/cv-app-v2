@@ -8,8 +8,8 @@ import {
 } from "../../context/FormContext";
 
 function FormGroupList({ type }) {
-  const dispatch = useFormDispatchContext();
   const formGroupsData = useFormContext();
+  const dispatch = useFormDispatchContext();
   const inputs = useMemo(() => getInputs(type), [type]);
   const items = formGroupsData[type];
   return items?.map((item, index) => (
