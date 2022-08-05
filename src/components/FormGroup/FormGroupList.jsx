@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useMemo } from "react";
 import Button from "../Button/Button";
 import FormGroup from "./FormGroup";
 import getInputs from "./helpers";
-import { useFormDispatchContext } from "../../context/FormContext";
+import {
+  useFormContext,
+  useFormDispatchContext,
+} from "../../context/FormContext";
 
-function FormGroupList({ items }) {
+function FormGroupList({ type }) {
   const dispatch = useFormDispatchContext();
+  const formGroupsData = useFormContext();
+  const inputs = useMemo(() => getInputs(type), [type]);
+  const items = formGroupsData[type];
   return items?.map((item, index) => (
     <section key={item.id} className="flex flex-col gap-2">
       <FormGroup ariaLabel={item.type} title={item.type}>
-        {getInputs(item.type)}
+        {inputs}
       </FormGroup>
       <div className="flex w-full justify-center gap-8">
         {index === items.length - 1 && (

@@ -2,10 +2,8 @@ import React from "react";
 import FormGroup from "../FormGroup/FormGroup";
 import FormInput from "../FormInput/FormInput";
 import FormGroupList from "../FormGroup/FormGroupList";
-import { useFormContext } from "../../context/FormContext";
 
 function FormContainer() {
-  const data = useFormContext();
   return (
     <form
       aria-label="Add information"
@@ -21,8 +19,8 @@ function FormContainer() {
         <FormInput id="description" label="Description" type="textarea" />
         <FormInput id="photo" label="Photo" type="file" required />
       </FormGroup>
-      <FormGroupList items={data?.education} />
-      <FormGroupList items={data?.experience} />
+      <FormGroupList type="education" />
+      <FormGroupList type="experience" />
     </form>
   );
 }
