@@ -5,7 +5,7 @@ import { FormProvider } from "../../context/FormContext";
 
 function Main() {
   return (
-    <main className="flex justify-around bg-gray-800 pt-24 pb-16 px-4 max-w-7xl mx-auto items-start">
+    <main className="flex flex-col justify-around bg-gray-800 pt-24 pb-16 px-4 max-w-7xl mx-auto items-start md:flex-row">
       <FormProvider>
         <FormContainer />
         <CvPreview />
