@@ -10,5 +10,14 @@
   .btn:disabled{
     @apply border-neutral-500 text-neutral-400;
   }
+ .autoheight{
+  min-height: 40rem;
+ }
 }
 
+
+@layer base{
+ body{
+  @apply bg-gray-800;
+ }
+}
