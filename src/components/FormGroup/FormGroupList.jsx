@@ -19,7 +19,7 @@ function FormGroupList({ inputs, type }) {
         modify={type}
         groupId={item.id}
       />
-      <div className="flex w-64 justify-center gap-8 lg:w-80">
+      <div className="flex w-full justify-center gap-8 md:w-64 lg:w-80">
         {index === sectionQuantity.length - 1 && (
           <Button
             label="Add"

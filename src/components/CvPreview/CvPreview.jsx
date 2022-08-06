@@ -9,7 +9,7 @@ function CvPreview() {
       <section className="block md:hidden">
         Can`&apos`t render on this device :(
       </section>
-      <section className="hidden md:flex flex-col h-192 w-10/12 lg:w-6/12 xl:w-4/12">
+      <section className="hidden md:block fixed top-24 right-6 w-7/12 h-160 lg:w-144 right-12 xl:right-96">
         {/* Header */}
         <div className="bg-neutral-800 h-24 px-3 flex flex-col justify-center">
           <h2 className="text-neutral-200 text-2xl font-semibold">

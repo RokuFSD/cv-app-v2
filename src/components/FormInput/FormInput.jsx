@@ -8,7 +8,7 @@ function FormInput({ id, label, type, required, onChange }) {
         {type === "textarea" ? (
           <textarea
             id={id}
-            className="bg-transparent rounded w-80"
+            className="bg-transparent rounded w-full md:w-80"
             required={required}
             onChange={(evt) => onChange(evt)}
           />
@@ -16,7 +16,7 @@ function FormInput({ id, label, type, required, onChange }) {
           <input
             type={type}
             id={id}
-            className="bg-transparent rounded w-80"
+            className="bg-transparent rounded w-full md:w-80"
             required={required}
             onChange={(evt) => onChange(evt)}
           />
