@@ -1,10 +1,13 @@
 import React from "react";
+import { useFormContext } from "../../context/FormContext";
 
 function CvPreview() {
+  const { personal } = useFormContext();
   return (
     <section>
-      <div>description</div>
-      <div>experience</div>
+      <div>
+        <h2>{`Name: ${personal.firstName}${personal.lastName}`}</h2>
+      </div>
     </section>
   );
 }
