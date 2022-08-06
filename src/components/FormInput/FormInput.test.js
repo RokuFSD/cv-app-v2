@@ -10,9 +10,16 @@ beforeEach(() => {
     label: "First Name",
     type: "text",
     required: true,
+    onChange: jest.fn(),
   };
   render(
-    <FormInput label={data.label} type={data.type} id={data.id} required />
+    <FormInput
+      label={data.label}
+      type={data.type}
+      id={data.id}
+      required
+      onChange={data.onChange}
+    />
   );
 });
 

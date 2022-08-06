@@ -1,24 +1,26 @@
-import React, { useMemo } from "react";
+import React from "react";
 import Button from "../Button/Button";
 import FormGroup from "./FormGroup";
-import getInputs from "./helpers";
 import {
   useFormContext,
   useFormDispatchContext,
 } from "../../context/FormContext";
 
-function FormGroupList({ type }) {
+function FormGroupList({ inputs, type }) {
   const formGroupsData = useFormContext();
   const dispatch = useFormDispatchContext();
-  const inputs = useMemo(() => getInputs(type), [type]);
-  const items = formGroupsData[type];
-  return items?.map((item, index) => (
+  const sectionQuantity = formGroupsData[type];
+  return sectionQuantity?.map((item, index) => (
     <section key={item.id} className="flex flex-col gap-2">
-      <FormGroup ariaLabel={item.type} title={item.type}>
-        {inputs}
-      </FormGroup>
+      <FormGroup
+        ariaLabel={item.type}
+        title={item.type}
+        inputs={inputs}
+        modify={type}
+        groupId={item.id}
+      />
       <div className="flex w-full justify-center gap-8">
-        {index === items.length - 1 && (
+        {index === sectionQuantity.length - 1 && (
           <Button
             label="Add"
             onClick={() => dispatch({ type: `ADD_${item.type.toUpperCase()}` })}
@@ -29,7 +31,7 @@ function FormGroupList({ type }) {
           onClick={() =>
             dispatch({ type: `DELETE_${item.type.toUpperCase()}`, id: item.id })
           }
-          disabled={items.length < 2}
+          disabled={sectionQuantity.length < 2}
         />
       </div>
     </section>

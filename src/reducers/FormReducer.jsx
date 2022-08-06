@@ -84,6 +84,46 @@ function formReducer(state, action) {
         education: state.education.filter((edu) => edu.id !== action.id),
       };
     }
+    case "UPDATE_PERSONAL": {
+      return {
+        ...state,
+        personal: {
+          ...state.personal,
+          [action.id]: action.value,
+        },
+      };
+    }
+    case "UPDATE_EXPERIENCE": {
+      const indexToUpdate = state.experience.findIndex(
+        (e) => e.id === action.groupId
+      );
+      const newExperience = [...state.experience];
+      newExperience[indexToUpdate] = {
+        ...newExperience[indexToUpdate],
+        [action.id]: action.value,
+      };
+
+      return {
+        ...state,
+        experience: newExperience,
+      };
+    }
+
+    case "UPDATE_EDUCATION": {
+      const indexToUpdate = state.education.findIndex(
+        (e) => e.id === action.groupId
+      );
+      const newEducation = [...state.education];
+      newEducation[indexToUpdate] = {
+        ...newEducation[indexToUpdate],
+        [action.id]: action.value,
+      };
+
+      return {
+        ...state,
+        education: newEducation,
+      };
+    }
     default: {
       throw Error("Unexpected action");
     }

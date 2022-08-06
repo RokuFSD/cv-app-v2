@@ -1,6 +1,6 @@
 import React from "react";
 
-function FormInput({ id, label, type, required }) {
+function FormInput({ id, label, type, required, onChange }) {
   return (
     <div>
       <label htmlFor={id} className="flex flex-wrap gap-2 items-center">
@@ -13,6 +13,7 @@ function FormInput({ id, label, type, required }) {
             id={id}
             className="bg-transparent rounded basis-full sm:basis-0"
             required={required}
+            onChange={(evt) => onChange(evt)}
           />
         )}
       </label>

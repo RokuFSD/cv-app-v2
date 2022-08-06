@@ -12,7 +12,7 @@ const customRender = (ui, options) =>
   render(ui, { wrapper: AllProviders, ...options });
 
 beforeEach(() => {
-  customRender(<FormGroupList type="experience" />);
+  customRender(<FormGroupList type="experience" inputs={[]} />);
 });
 
 describe("FormGroupList mount", () => {
