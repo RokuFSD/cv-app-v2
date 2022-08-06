@@ -4,14 +4,19 @@ function FormInput({ id, label, type, required, onChange }) {
   return (
     <div>
       <label htmlFor={id} className="flex flex-wrap gap-2 items-center">
-        {label}
+        <span className="w-52">{label}</span>
         {type === "textarea" ? (
-          <textarea id={id} className="w-full" required={required} />
+          <textarea
+            id={id}
+            className="bg-transparent rounded w-80"
+            required={required}
+            onChange={(evt) => onChange(evt)}
+          />
         ) : (
           <input
             type={type}
             id={id}
-            className="bg-transparent rounded basis-full sm:basis-0"
+            className="bg-transparent rounded w-80"
             required={required}
             onChange={(evt) => onChange(evt)}
           />

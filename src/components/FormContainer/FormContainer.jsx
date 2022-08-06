@@ -10,7 +10,7 @@ function FormContainer() {
   return (
     <form
       aria-label="Add information"
-      className="text-neutral-200 flex flex-col gap-10"
+      className="text-neutral-200 flex flex-col gap-10 w-64 align-center lg:w-80 "
     >
       <FormGroup
         ariaLabel="Personal Information"

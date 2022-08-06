@@ -30,7 +30,7 @@ describe("FormContainer update context", () => {
   it("should add a group", async () => {
     const button = screen.getAllByRole("button");
     await userEvent.click(button[0]);
-    expect(screen.getAllByText(/education/i)).toHaveLength(2);
+    expect(screen.getAllByText(/education/i)).toHaveLength(3);
   });
   it("should change lastname", async () => {
     const input = screen.getByLabelText("Last Name");
