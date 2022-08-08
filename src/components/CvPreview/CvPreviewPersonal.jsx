@@ -1,17 +1,17 @@
 import React from "react";
 
-function CvPreviewPersonal({ personal }) {
+function CvPreviewPersonal({ items }) {
   return (
     <aside className="w-4/12 min-h-full bg-neutral-300">
       <img src="" alt="profile" />
       <div className="flex flex-col mx-2 break-words flex">
         <h2 className="text-blue-400 font-semibold">Personal Details</h2>
         <h2 className="font-semibold text-sm">Address</h2>
-        <p className="text-xs mb-2">{personal.address}</p>
+        <p className="text-xs mb-2">{items.address}</p>
         <h2 className="font-semibold text-sm">Phone Number</h2>
-        <p className="text-xs mb-2">{personal.phoneNumber}</p>
+        <p className="text-xs mb-2">{items.phoneNumber}</p>
         <h2 className="font-semibold text-sm">Email</h2>
-        <p className="text-xs mb-2">{personal.email}</p>
+        <p className="text-xs mb-2">{items.email}</p>
       </div>
     </aside>
   );
