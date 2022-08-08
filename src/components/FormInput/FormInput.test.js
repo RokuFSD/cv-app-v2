@@ -40,3 +40,12 @@ describe("User enter text", () => {
     expect(input).toHaveAttribute("required");
   });
 });
+
+describe("Triggers onChange", () => {
+  it("Should call onChange", async () => {
+    const mockFn = jest.fn();
+    render(<FormInput type="text" label="Address" onChange={mockFn} />);
+    await userEvent.type(screen.getByLabelText("Address"), "Test");
+    expect(screen.getByLabelText("Address").value).toBe("Test");
+  });
+});

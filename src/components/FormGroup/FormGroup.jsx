@@ -6,8 +6,7 @@ function FormGroup({ ariaLabel, title, inputs, modify, groupId }) {
   const idReact = useId();
   const dispatch = useFormDispatchContext();
 
-  const handleChange = (e) => {
-    const { id, value } = e.target;
+  const handleChange = ({ id, value }) => {
     dispatch({
       type: `UPDATE_${modify.toUpperCase()}`,
       id,

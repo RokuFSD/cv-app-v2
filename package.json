@@ -8,7 +8,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "jest",
-    "test:watchAll": "jest --watchAll"
+    "test:watchAll": "jest --watchAll",
+    "test:coverage": "jest --coverage"
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.5.2",

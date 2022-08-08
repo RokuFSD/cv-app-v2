@@ -1,6 +1,9 @@
 import React from "react";
 
 function FormInput({ id, label, type, required, onChange }) {
+  function handleChange(e) {
+    onChange({ id: e.target.id, value: e.target.value });
+  }
   return (
     <div>
       <label htmlFor={id} className="flex flex-wrap gap-2 items-center">
@@ -10,7 +13,7 @@ function FormInput({ id, label, type, required, onChange }) {
             id={id}
             className="bg-transparent rounded w-full md:w-80"
             required={required}
-            onChange={(evt) => onChange(evt)}
+            onChange={handleChange}
           />
         ) : (
           <input
@@ -18,7 +21,7 @@ function FormInput({ id, label, type, required, onChange }) {
             id={id}
             className="bg-transparent rounded w-full md:w-80"
             required={required}
-            onChange={(evt) => onChange(evt)}
+            onChange={handleChange}
           />
         )}
       </label>
