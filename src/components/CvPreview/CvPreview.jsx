@@ -28,7 +28,7 @@ function CvPreview() {
               {experience.map((item) => (
                 <div key={item.id} className="flex gap-4">
                   <div>
-                    <p className="text-sm font-semibold w-40">
+                    <p className="text-sm font-semibold w-44">
                       {item.jobFrom} - {item.jobTo}
                     </p>
                   </div>
@@ -44,14 +44,14 @@ function CvPreview() {
             <div>
               <h2 className="text-blue-400 font-semibold">Education</h2>
               {education.map((item) => (
-                <div key={item.id}>
+                <div key={item.id} className="flex gap-4">
                   <div>
-                    <p>
+                    <p className="text-sm font-semibold w-44">
                       {item.schoolFrom} - {item.schoolTo}
                     </p>
                   </div>
-                  <div>
-                    <p>
+                  <div className="text-sm h-20">
+                    <p className="font-semibold">
                       {item.universityName}, {item.schoolCity}
                     </p>
                     <p>{item.degree}</p>
