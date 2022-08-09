@@ -13,7 +13,7 @@ function Modal({ children, onClose }) {
     const modalRoot = document.getElementById("modal");
     modalRoot.appendChild(elRef.current);
     return () => modalRoot.removeChild(elRef.current);
-  });
+  }, []);
   return createPortal(
     <>
       <Button onClick={onClose} type="icon" extraClasses={["top-left"]}>

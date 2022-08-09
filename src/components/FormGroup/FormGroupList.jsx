@@ -22,12 +22,14 @@ function FormGroupList({ inputs, type }) {
       <div className="flex w-full justify-center gap-8 md:w-64 lg:w-80">
         {index === sectionQuantity.length - 1 && (
           <Button
+            type="success"
             onClick={() => dispatch({ type: `ADD_${item.type.toUpperCase()}` })}
           >
             Add
           </Button>
         )}
         <Button
+          type="error"
           onClick={() =>
             dispatch({ type: `DELETE_${item.type.toUpperCase()}`, id: item.id })
           }

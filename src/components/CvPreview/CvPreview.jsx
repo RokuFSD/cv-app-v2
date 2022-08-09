@@ -26,8 +26,8 @@ function CvPreview({ forceShow }) {
             <h2 className="text-blue-400 font-semibold">Description</h2>
             <p className="text-sm break-words">{personal.description}</p>
           </div>
-          <CvPreviewExperience items={experience} />
           <CvPreviewEducation items={education} />
+          <CvPreviewExperience items={experience} />
         </div>
         <CvPreviewPersonal items={personal} />
       </div>
