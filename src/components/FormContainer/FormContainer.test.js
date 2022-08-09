@@ -4,9 +4,24 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import FormContainer from "./FormContainer";
 import { FormProvider } from "../../context/FormContext";
+import idDate from "../../helpers";
+
+const stateReducer = {
+  education: [
+    {
+      id: idDate(),
+      universityName: "",
+      schoolCity: "",
+      degree: "",
+      schoolFrom: "",
+      schoolTo: "",
+      type: "education",
+    },
+  ],
+};
 
 function AllProviders({ children }) {
-  return <FormProvider value="">{children}</FormProvider>;
+  return <FormProvider value={stateReducer}>{children}</FormProvider>;
 }
 
 const customRender = (ui, options) =>

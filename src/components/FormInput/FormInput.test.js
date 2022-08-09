@@ -27,14 +27,6 @@ describe("FormInput mount", () => {
   it("renders without crashing", () => {
     expect(screen.getByLabelText("First Name")).toBeInTheDocument();
   });
-});
-
-describe("User enter text", () => {
-  it("should display the text entered", async () => {
-    const input = screen.getByLabelText("First Name");
-    await userEvent.type(input, "John");
-    expect(input).toHaveValue("John");
-  });
   it("should be required", () => {
     const input = screen.getByLabelText("First Name");
     expect(input).toHaveAttribute("required");

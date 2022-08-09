@@ -125,7 +125,7 @@ function formReducer(state, action) {
       };
     }
     default: {
-      throw Error("Unexpected action");
+      return { ...state };
     }
   }
 }
