@@ -4,10 +4,14 @@ import CvPreviewEducation from "./CvPreviewEducation";
 import CvPreviewExperience from "./CvPreviewExperience";
 import CvPreviewPersonal from "./CvPreviewPersonal";
 
-function CvPreview() {
+function CvPreview({ forceShow }) {
   const { personal, experience, education } = useFormContext();
   return (
-    <section className="hidden md:block sticky top-0 w-7/12 lg:w-144">
+    <section
+      className={`${
+        forceShow ? "w-full" : "hidden w-7/12"
+      } md:block sticky top-0 lg:w-144`}
+    >
       {/* Header */}
       <div className="bg-neutral-800 px-3 flex flex-col justify-center h-24">
         <h2 className="text-neutral-200 text-2xl font-semibold">
