@@ -3,7 +3,7 @@ import React from "react";
 function CvPreviewPersonal({ items }) {
   return (
     <aside className="w-4/12 min-h-full bg-neutral-300">
-      <img src="" alt="profile" />
+      <img src={items.photo} alt="profile" />
       <div className="flex flex-col mx-2 break-words flex">
         <h2 className="text-blue-400 font-semibold">Personal Details</h2>
         <h2 className="font-semibold text-sm">Address</h2>

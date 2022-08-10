@@ -1,8 +1,21 @@
 import React from "react";
 
 function FormInput({ id, label, type, required, onChange }) {
+  function onImageChange(e) {
+    if (e.target.files && e.target.files[0]) {
+      const image = URL.createObjectURL(e.target.files[0]);
+      onChange({ id: e.target.id, value: image });
+    }
+  }
   function handleChange(e) {
-    onChange({ id: e.target.id, value: e.target.value });
+    if (type === "file") {
+      onImageChange(e);
+    } else {
+      onChange({
+        id: e.target.id,
+        value: e.target.value,
+      });
+    }
   }
   return (
     <div>
