@@ -5,6 +5,7 @@ import userEvent from "@testing-library/user-event";
 import FormInput from "./FormInput";
 
 beforeEach(() => {
+  window.URL.createObjectURL = jest.fn(); // mock the function
   const data = {
     id: "firstName",
     label: "First Name",
@@ -41,3 +42,13 @@ describe("Triggers onChange", () => {
     expect(screen.getByLabelText("Address").value).toBe("Test");
   });
 });
+
+describe("Input file", () => {
+  it("Should set file on change", async () => {
+    const fakeFile = new File([""], "test.png", { type: "image/png" });
+    render(<FormInput id="photo" type="file" label="photo" onChange={() => {}} />);
+    const { getByLabelText } = screen;
+    await userEvent.upload(getByLabelText("photo"), fakeFile)
+    expect(getByLabelText("photo").files[0]).toBe(fakeFile);
+  })
+})

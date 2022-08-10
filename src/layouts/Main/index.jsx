@@ -1,7 +1,7 @@
-import React from "react";
-import FormContainer from "../../components/FormContainer/FormContainer";
-import CvPreview from "../../components/CvPreview/CvPreview";
-import { FormProvider } from "../../context/FormContext";
+import React from 'react';
+import FormContainer from '../../components/FormContainer/FormContainer';
+import CvPreview from '../../components/CvPreview/CvPreview';
+import { FormProvider } from '../../context/FormContext';
 
 function Main() {
   return (

@@ -18,7 +18,6 @@ function FormGroup({ ariaLabel, title, inputs, modify, groupId }) {
     <div role="group" aria-label={ariaLabel} className="flex flex-col gap-2">
       <h2 className="font-bold text-lg capitalize">{title}</h2>
       {inputs.map((input, index) => (
-        // eslint-disable-next-line react/jsx-props-no-spreading,react/no-array-index-key
         <FormInput
           key={`${idReact}-${index}`}
           {...input}

@@ -18,6 +18,7 @@ function Modal({ children, onClose }) {
     <>
       <Button onClick={onClose} type="icon" extraClasses={["top-left"]}>
         <svg
+          data-testid="close-icon"
           className="w-6 h-6"
           fill="none"
           stroke="currentColor"

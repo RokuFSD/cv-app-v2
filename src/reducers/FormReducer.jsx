@@ -1,90 +1,90 @@
-import idDate from "../helpers";
+import idDate from '../helpers';
 
 const initialForm = {
   personal: {
-    firstName: "",
-    lastName: "",
-    title: "",
-    address: "",
-    phoneNumber: "",
-    email: "",
-    description: "",
-    photo: "",
+    firstName: '',
+    lastName: '',
+    title: '',
+    address: '',
+    phoneNumber: '',
+    email: '',
+    description: '',
+    photo: '',
   },
   experience: [
     {
       id: idDate(),
-      position: "",
-      company: "",
-      jobCity: "",
-      jobFrom: "",
-      jobTo: "",
-      type: "experience",
+      position: '',
+      company: '',
+      jobCity: '',
+      jobFrom: '',
+      jobTo: '',
+      type: 'experience',
     },
   ],
   education: [
     {
       id: idDate(),
-      universityName: "",
-      schoolCity: "",
-      degree: "",
-      schoolFrom: "",
-      schoolTo: "",
-      type: "education",
+      universityName: '',
+      schoolCity: '',
+      degree: '',
+      schoolFrom: '',
+      schoolTo: '',
+      type: 'education',
     },
   ],
 };
 
 function formReducer(state, action) {
   switch (action.type) {
-    case "ADD_EXPERIENCE": {
+    case 'ADD_EXPERIENCE': {
       return {
         ...state,
         experience: [
           ...state.experience,
           {
             id: idDate(),
-            position: "",
-            company: "",
-            jobCity: "",
-            jobFrom: "",
-            jobTo: "",
-            type: "experience",
+            position: '',
+            company: '',
+            jobCity: '',
+            jobFrom: '',
+            jobTo: '',
+            type: 'experience',
           },
         ],
       };
     }
-    case "ADD_EDUCATION": {
+    case 'ADD_EDUCATION': {
       return {
         ...state,
         education: [
           ...state.education,
           {
             id: idDate(),
-            universityName: "",
-            schoolCity: "",
-            degree: "",
-            schoolFrom: "",
-            schoolTo: "",
-            type: "education",
+            universityName: '',
+            schoolCity: '',
+            degree: '',
+            schoolFrom: '',
+            schoolTo: '',
+            type: 'education',
           },
         ],
       };
     }
-    case "DELETE_EXPERIENCE": {
+    case 'DELETE_EXPERIENCE': {
       return {
         ...state,
         experience: state.experience.filter((exp) => exp.id !== action.id),
       };
     }
 
-    case "DELETE_EDUCATION": {
+    case 'DELETE_EDUCATION': {
       return {
         ...state,
         education: state.education.filter((edu) => edu.id !== action.id),
       };
     }
-    case "UPDATE_PERSONAL": {
+    case 'UPDATE_PERSONAL': {
       return {
         ...state,
         personal: {
@@ -93,7 +93,7 @@ function formReducer(state, action) {
         },
       };
     }
-    case "UPDATE_EXPERIENCE": {
+    case 'UPDATE_EXPERIENCE': {
       const indexToUpdate = state.experience.findIndex(
         (e) => e.id === action.groupId
       );
@@ -109,7 +109,7 @@ function formReducer(state, action) {
       };
     }
 
-    case "UPDATE_EDUCATION": {
+    case 'UPDATE_EDUCATION': {
       const indexToUpdate = state.education.findIndex(
         (e) => e.id === action.groupId
       );

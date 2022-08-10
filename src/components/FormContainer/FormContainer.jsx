@@ -1,17 +1,17 @@
-import React, { useMemo } from "react";
-import useMediaQuery from "../../hooks/useMediaQuery";
-import FormGroup from "../FormGroup/FormGroup";
-import FormGroupList from "../FormGroup/FormGroupList";
-import getInputs from "../FormGroup/helpers";
-import Button from "../Button/Button";
-import Modal from "../Modal/Modal";
-import CvPreview from "../CvPreview/CvPreview";
+import React, { useMemo } from 'react';
+import useMediaQuery from '../../hooks/useMediaQuery';
+import FormGroup from '../FormGroup/FormGroup';
+import FormGroupList from '../FormGroup/FormGroupList';
+import getInputs from '../FormGroup/helpers';
+import Button from '../Button/Button';
+import Modal from '../Modal/Modal';
+import CvPreview from '../CvPreview/CvPreview';
 
 function FormContainer() {
-  const personalInputs = useMemo(() => getInputs("personal"), []);
-  const educationInputs = useMemo(() => getInputs("education"), []);
-  const experienceInputs = useMemo(() => getInputs("experience"), []);
-  const matchMediaQuery = useMediaQuery("(max-width: 720px)");
+  const personalInputs = useMemo(() => getInputs('personal'), []);
+  const educationInputs = useMemo(() => getInputs('education'), []);
+  const experienceInputs = useMemo(() => getInputs('experience'), []);
+  const matchMediaQuery = useMediaQuery('(max-width: 720px)');
   const [isModalOpen, setIsModalOpen] = React.useState(false);
   return (
     <>
