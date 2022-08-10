@@ -8,7 +8,7 @@ function CvPreview({ forceShow }) {
   const { personal, experience, education } = useFormContext();
   return (
     <section
-      className={`${
+      className={`shadow-2xl shadow-blue-500/20 ${
         forceShow ? 'w-full' : 'hidden w-7/12'
       } md:block sticky top-0 lg:w-144`}
     >

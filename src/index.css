@@ -4,7 +4,7 @@
 
 @layer components{
  .btn{
-  @apply w-40 h-12 border-2 border-neutral-300 rounded-2xl
+  @apply w-40 h-12 border-2 border-neutral-300 rounded-2xl transition-all
  }
  .btn:disabled{
   @apply bg-transparent border-neutral-500 text-neutral-400 pointer-events-none;

@@ -7,7 +7,7 @@ function Modal({ children, onClose }) {
   if (!elRef.current) {
     elRef.current = document.createElement("div");
     elRef.current.className =
-      "fixed z-10 h-screen w-screen bg-opacity-80 bg-black";
+      "flex items-center fixed z-10 h-screen w-screen bg-opacity-80 bg-black";
   }
   useEffect(() => {
     const modalRoot = document.getElementById("modal");
@@ -16,7 +16,7 @@ function Modal({ children, onClose }) {
   }, []);
   return createPortal(
     <>
-      <Button onClick={onClose} type="icon" extraClasses={["top-left"]}>
+      <Button onClick={onClose} type="icon" extraClasses={["absolute top-2"]}>
         <svg
           data-testid="close-icon"
           className="w-6 h-6"
