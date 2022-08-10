@@ -7,7 +7,7 @@ import Button from '../Button/Button';
 import Modal from '../Modal/Modal';
 import CvPreview from '../CvPreview/CvPreview';
 
-function FormContainer() {
+function FormContainer({ onPrintClick }) {
   const personalInputs = useMemo(() => getInputs('personal'), []);
   const educationInputs = useMemo(() => getInputs('education'), []);
   const experienceInputs = useMemo(() => getInputs('experience'), []);
@@ -32,6 +32,7 @@ function FormContainer() {
             Show Preview
           </Button>
         )}
+        <Button onClick={onPrintClick}>Print out</Button>
       </form>
       {isModalOpen && (
         <Modal onClose={() => setIsModalOpen(!isModalOpen)}>
