@@ -6,6 +6,6 @@ import Header from "./index";
 describe("Header mount", () => {
   it("renders without crashing", () => {
     render(<Header />);
-    expect(screen.getByText("CV-App")).toBeInTheDocument();
+    expect(screen.getByText(/cv generator/i)).toBeInTheDocument();
   });
 });
